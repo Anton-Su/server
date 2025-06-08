@@ -1,35 +1,53 @@
 package com.kursovaya.server.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "patient")
-public class Patient {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "full_name")
-    private String fullName;
+    @Column(name = "login", unique = true, nullable = false)
+    private String login;
 
-    @Column(name = "birth_date")
-    private LocalDate birthDate;
+    @Column(name = "password")
+    private String password;
 
-    @Column(name = "phone")
-    private String phone;
+    @Column(name = "role")
+    private String role;
 
+    private String specialCode;
+
+    public void setSpecialCode(String specialCode) {
+        this.specialCode = specialCode;
+    }
+
+    public String getSpecialCode() {
+        return specialCode;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getFullName() { return fullName; }
-    public void setFullName(String fullName) { this.fullName = fullName; }
-
-    public LocalDate getBirthDate() { return birthDate; }
-    public void setBirthDate(LocalDate birthDate) { this.birthDate = birthDate; }
-
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }

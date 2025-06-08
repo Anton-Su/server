@@ -1,4 +1,9 @@
 package com.kursovaya.server.repository;
 
-public interface TimetableRepository {
+import com.kursovaya.server.entity.Timetable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TimetableRepository extends JpaRepository<Timetable, Long> {
+
 }
+
